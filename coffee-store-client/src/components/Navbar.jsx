@@ -2,15 +2,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const links = (
-        <div className="flex flex-col gap-4 items-center md:flex-row">
-            <Link to="/" className="hover:underline text-base">
+        <div className="flex flex-col items-center gap-4 md:flex-row">
+            <Link to="/" className="text-base hover:underline">
                 Home
             </Link>
-            <Link to="/addCoffee" className="hover:underline text-base">
+            <Link to="/addCoffee" className="text-base hover:underline">
                 Add Coffee
-            </Link>
-            <Link to="/updateCoffee" className="hover:underline text-base">
-                Update Coffee
             </Link>
         </div>
     );
@@ -25,7 +22,7 @@ const Navbar = () => {
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
+                            className="w-5 h-5"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -45,11 +42,11 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="text-xl btn btn-ghost">daisyUI</a>
             </div>
             <div className="navbar-end">
                 <div className="hidden md:block">
-                    <ul className="menu menu-horizontal px-1">{links}</ul>
+                    <ul className="px-1 menu menu-horizontal">{links}</ul>
                 </div>
             </div>
         </div>

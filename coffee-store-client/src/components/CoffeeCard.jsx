@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
     const { _id, photo, name, chef } = coffee;
 
     const handleDelete = (_id) => {
@@ -29,6 +30,10 @@ const CoffeeCard = ({ coffee }) => {
                                 text: "Your file has been deleted.",
                                 icon: "success",
                             });
+                            const remaining = coffees.filter(
+                                (cof) => cof._id !== _id
+                            );
+                            setCoffees(remaining);
                         }
                     });
             }
@@ -54,9 +59,11 @@ const CoffeeCard = ({ coffee }) => {
                         <FaEye className="w-5 h-5" />
                     </button>
                     {/* Edit Button */}
-                    <button className="p-2 text-white bg-yellow-500 rounded hover:bg-yellow-600">
-                        <FaEdit className="w-5 h-5" />
-                    </button>
+                    <Link to={`updateCoffee/${_id}`}>
+                        <button className="p-2 text-white bg-yellow-500 rounded hover:bg-yellow-600">
+                            <FaEdit className="w-5 h-5" />
+                        </button>
+                    </Link>
                     {/* Delete Button */}
                     <button
                         onClick={() => {
