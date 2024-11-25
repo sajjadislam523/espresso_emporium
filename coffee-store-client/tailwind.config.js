@@ -6,7 +6,11 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'input_bg': "url('src/assets/more/11.png')",
+      }
+    },
   },
   plugins: [daisyui],
 }
